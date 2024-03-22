@@ -153,6 +153,15 @@ public class BlackJackEnv {
 		else if (s.startsWith("k") || s.startsWith("q") || s.startsWith("j") || s.startsWith("0")) return 10;
 		else return Character.getNumericValue(s.charAt(0));
 	}
+	public String drawCardForDealer() {
+		if (!drawdeck.isEmpty()) {
+			return drawdeck.poll();
+		} else {
+			// Handle case when drawdeck is empty
+			return null;
+		}
+	}
+
 
 }
 

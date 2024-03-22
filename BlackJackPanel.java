@@ -28,7 +28,7 @@ public class BlackJackPanel extends JPanel {
     }
 
     public void render(ArrayList<String> state) {
-        gameOver = (state.getFirst().equals("true"));
+        gameOver = (state.get(0).equals("true"));
         List<String> dealerString = BlackJackEnv.getDealerCards(state);
         dealerHand = new ArrayList<ImageIcon>();
         for (String card : dealerString)
@@ -36,7 +36,7 @@ public class BlackJackPanel extends JPanel {
         if (gameOver)
             dealerValue = BlackJackEnv.totalValue(BlackJackEnv.getDealerCards(state));
         else
-            dealerValue = BlackJackEnv.valueOf(BlackJackEnv.getDealerCards(state).getFirst());
+            dealerValue = BlackJackEnv.valueOf(BlackJackEnv.getDealerCards(state).get(0));
         List<String> playerString = BlackJackEnv.getPlayerCards(state);
         playerValue = BlackJackEnv.totalValue(playerString);
         playerAce = BlackJackEnv.holdActiveAce(playerString);
@@ -61,7 +61,7 @@ public class BlackJackPanel extends JPanel {
                  x+=25;
              }
          } else {
-             dealerHand.getFirst().paintIcon(this, g, 15, 40);
+             dealerHand.get(0).paintIcon(this, g, 15, 40);
              cardBack.paintIcon(this, g, 40, 40);
 
          }
