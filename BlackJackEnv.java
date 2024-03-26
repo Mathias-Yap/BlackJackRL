@@ -25,6 +25,9 @@ public class BlackJackEnv {
 	public BlackJackEnv(int vizType, int vizDelay) {
 		BlackJackEnv.vizType = vizType; BlackJackEnv.vizDelay = vizDelay;
 	}
+
+
+
 	public ArrayList<String> reset() {
 		drawdeck = new LinkedList<String>();
 		drawdeck.addAll(deck);
@@ -159,6 +162,30 @@ public class BlackJackEnv {
 		} else {
 			// Handle case when drawdeck is empty
 			return null;
+		}
+	}
+
+	public static int getCardRank(String card) {
+		char rankChar = card.charAt(0); // Extract the rank character from the card string
+		switch (rankChar) {
+			case '2': return 2;
+			case '3': return 3;
+			case '4': return 4;
+			case '5': return 5;
+			case '6': return 6;
+			case '7': return 7;
+			case '8': return 8;
+			case '9': return 9;
+			case '0': return 10; // 10 card represented as '0'
+			case 'j':
+			case 'J': return 11; // Jack
+			case 'q':
+			case 'Q': return 12; // Queen
+			case 'k':
+			case 'K': return 13; // King
+			case 'a':
+			case 'A': return 14; // Ace
+			default: return -1; // Invalid card
 		}
 	}
 
