@@ -35,7 +35,7 @@ public class QLearner {
         List<String> dealerState = BlackJackEnv.getDealerCards(currentState);
         int playerState = BlackJackEnv.totalValue(BlackJackEnv.getPlayerCards(currentState));
         while (!Boolean.parseBoolean(currentState.get(0))) { // While game is not over
-            int state = Math.min(21, Math.max(0, playerState)); // Current state: player's hand value
+            int state = Math.max(0, playerState); // Current state: player's hand value
             int action = chooseAction(state, QTable); // Choose action based on Q-values
             ArrayList<String> nextState = game.step(action); // Take action and observe next state
             double reward = Double.parseDouble(nextState.get(1)); // Obtain reward
