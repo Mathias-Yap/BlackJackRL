@@ -52,6 +52,11 @@ public class BlackJackEnv {
 	}
 
 	public ArrayList<String> step(int action) {
+		/*arraylist state:
+		 * index 0: did we lose
+		 * index 1: dealer sum
+		 * index 2: player sum
+		 */
 		ArrayList<String> state = new ArrayList<String>();
 		if (action == BlackJackEnv.HIT) { // HIT
 			player.add(drawdeck.poll());

@@ -42,9 +42,8 @@ public class QLearner {
             int nextStateValue = Math.min(21, Math.max(0, BlackJackEnv.totalValue(BlackJackEnv.getPlayerCards(nextState)))); // Next state: player's hand value
             // Update Q-value based on Q-learning update rule
             QTable[state][action] += 0.1 * (reward + 0.9 * getMaxQValue(nextStateValue, QTable) - QTable[state][action]);
-            totalReward += reward;
             currentState = nextState; // Update current state
-            playerState = nextStateValue; // Update player's state
+            playerState = nextStateValue; // Update player's state   
 
             // Dealer's turn
             while (BlackJackEnv.totalValue(dealerState) < 17) {
